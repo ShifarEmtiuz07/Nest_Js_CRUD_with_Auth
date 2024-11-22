@@ -5,7 +5,7 @@ import { IsNotEmpty, IsString } from 'class-validator';
 export class UpdateAuthDto extends PartialType(CreateAuthDto) {
       
     @IsNotEmpty()
-    readonly userId: number;
+    readonly userName: string;
 
     @IsString()
     userPassword: string;

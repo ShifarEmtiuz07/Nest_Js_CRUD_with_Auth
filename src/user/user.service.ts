@@ -61,6 +61,19 @@ export class UserService {
     return user;
   }
 
+  async findOneByUserName(userName: string): Promise<User> {
+    const user= await this.userRepository.findOne({
+      where: { userName: userName },
+      relations: ['profile', 'orders'],
+    });
+    if(!user){
+      throw new NotFoundException(`User with user id ${userName} not found`);
+    }
+    return user;
+  }
+
+
+
 
 
 
